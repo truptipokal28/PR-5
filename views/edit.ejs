@@ -1,0 +1,132 @@
+<!-- <form action="/updateData" method="post">
+    <input type="text" name="editid" value="<%= single.id %>">
+    <table border="2">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" value="<%= single.name %>" name="name"></td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td><input type="text" value="<%= single.description %>" name="description"></td>
+        </tr>
+        <tr>
+            <td>price</td>
+            <td><input type="text" value="<%= single.price %>" name="price"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit"></td>
+        </tr>
+    </table>
+</form> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    /* Custom CSS */
+    body {
+      background-color: #f8f9fa;
+    }
+    .btn{
+      font-family: 'Times New Roman';
+      font-size: 18px;
+      background-color: #4e034e;
+      color: white;
+      border-radius: 5px;
+      border: none;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      border: none;
+      background-color: #4e034e ;
+    }
+    .btn:hover{
+      color: white;
+      background-color: #7a137a;
+      border: none;
+      text-decoration: none;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 5px solid rgb(78, 3, 78);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+    .form-container h2 {
+      color: rgb(78, 3, 78);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-container input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid rgb(78, 3, 78);
+      border-radius: 5px;
+    }
+    .form-container input[type="submit"] {
+      background-color: rgb(78, 3, 78);
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-container input[type="submit"]:hover {
+      background-color: #4e034e;
+    }
+  </style>
+  <title>Edit Record</title>
+</head>
+<body>
+
+<!-- Form Section -->
+<section class="section mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto form-container"  enctype="multipart/form-data">
+        <h2>Edit Movie</h2>
+        <form action="/updateData" method="post">
+          <input type="hidden" name="editid" value="<%= single.id %>">
+          <div class="mb-3">
+            <label for="name" class="form-label">Movie Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%= single.name %>">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" name="description" value="<%= single.description %>">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Image</label>
+            <input type="file" class="form-control" id="description" name="image" value="<%= single.image %>">
+            <img src="<%=single.image%>" class="w-25" class="card-img-top" alt="...">
+
+          </div>
+          <!-- <tr>
+            <td>image</td>
+            <td><input type="file" class="p-2" name="image" value="<%=data.image%>">
+                <img src="<%=data.image%>" class="w-25" class="card-img-top" alt="...">
+            </td>
+        </tr> -->
+          <div class="mb-3">
+            <label for="price" class="form-label">Ticket Price</label>
+            <input type="text" class="form-control" id="price" name="price" value="<%= single.price %>">
+          </div>
+          <button type="submit" class="btn btn-primary">Update Movie</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>

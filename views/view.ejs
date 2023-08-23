@@ -1,0 +1,230 @@
+<!-- <table border="2">
+  <tr>
+      <td>Name</td>
+      <td>description</td>
+      <td>price</td>
+      <td>Action</td>
+  </tr>
+  <% success.map((v)=>{ %>
+      <tr>
+          <td><%= v.name%></td>
+          <td><%= v.description%></td>
+          <td><%= v.price%></td>
+          <td>
+              <button>
+                  <a href="/deleteData?id=<%= v.id %>">Delete</a>
+              </button>
+              <button>
+                  <a href="/editData?id=<%= v.id %>">Edit</a>
+              </button>
+          </td>
+      </tr>
+  <% })%>
+</table>
+<br>
+<a href="/">Add Record</a> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    /* Custom CSS */
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: rgb(78, 3, 78);
+
+    }
+
+    .navbar-brand {
+      font-size: 40px;
+      font-family: 'Times New Roman';
+      color: #ffffff;
+    }
+
+    li a .nav-link {
+      color: white;
+    }
+
+    .navbar-brand:hover {
+      color: white;
+    }
+
+    .nav-link {
+      margin: 0 10px;
+      color: white;
+      font-size: 19px;
+    }
+
+    .nav-link:hover {
+      color: rgb(211, 209, 209);
+      transition: all 0.5s;
+    }
+
+    .section {
+      padding: 50px 0;
+    }
+
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+      color: #343a40;
+    }
+
+    .btn:hover{
+      color: white;
+      background-color: #7a137a;
+      border: none;
+      text-decoration: none;
+    }
+    .card-text {
+      color: #6c757d;
+    }
+
+    .btn-primary {
+      background-color: rgb(78, 3, 78);
+      color: white;
+      font-family: 'Times New Roman';
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn-danger {
+      background-color: rgb(78, 3, 78);
+      border: none;
+      color: white;
+      font-family: 'Times New Roman';
+      border-radius: 5px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .btn-primary,
+    .btn-danger {
+      margin-right: 10px;
+    }
+
+    .navbar-nav {
+      margin-left: 300px;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+    }
+    .btn{
+      font-family: 'Times New Roman';
+      font-size: 18px;
+      background-color: #4e034e;
+      color: white;
+      border-radius: 5px;
+      border: none;
+    }
+    .btn:hover{
+      color: white;
+      background-color: #7a137a;
+      border: none;
+      text-decoration: none;
+    }
+    .footer {
+      background-color: rgb(78, 3, 78);
+      padding: 20px 0;
+      color: white;
+      text-align: center;
+    }
+  </style>
+  <title>View Records</title>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container">
+      <a class="navbar-brand" href="/viewData" enctype="multipart/form-data">STAR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto ">
+          <li class="nav-item">
+            <a class="nav-link " href="/viewData">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/viewData">Pages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/viewData">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/viewData">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/viewData">About</a>
+          </li>
+          <!-- Add more navigation items if needed -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content Section -->
+  <section class="section mt-5">
+    <div class="container">
+      <div class="row">
+        <% success.map((v)=> { %>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= v.name %>
+                </h5>
+                <p class="card-text">
+                  <%= v.description %>
+                </p>
+                <p class="card-text">
+                  <img src="<%= v.image %>" alt="">
+                </p>
+                <p class="card-text">
+                  <%= v.price %>
+                </p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-danger">
+                  <a class="text-white" href="/deleteData?id=<%= v.id %>">Delete</a>
+                </button>
+                <button class="btn btn-primary">
+                  <a class="text-white" href="/editData?id=<%= v.id %>">Edit</a>
+                </button>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2023 Your Company. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+
+</html>
